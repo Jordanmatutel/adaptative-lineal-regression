@@ -13,9 +13,9 @@ def catboost_result():
     # Creates the model
     model = CatBoostRegressor(iterations=50, learning_rate=0.1, loss_function='RMSE')
     model.fit(x_train, y_train, silent=True)
-    Y_pred = []
+    prediction_y = []
     for x in x_test:
-        y_pred = model.predict([x])
-        Y_pred.append(y_pred)
+        y = model.predict([x])
+        prediction_y.append(y)
 
-    return Y_pred
+    return prediction_y
