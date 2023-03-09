@@ -23,7 +23,7 @@ def linear_regression2():
     data = []
     coefficient = np.polyfit(x, y, 2)
     for i in range(len(x)):
-        w2 = coefficient[0] ** 2
+        w2 = coefficient[0]
         w = coefficient[1]
         m = coefficient[2]
         result = (w2 * x[i]) + (w*x[i]) + m
@@ -38,8 +38,8 @@ def linear_regression3():
     data = []
     coefficient = np.polyfit(x, y, 3)
     for i in range(len(x)):
-        w3 = coefficient[0] ** 3
-        w2 = coefficient[1] ** 2
+        w3 = coefficient[0]
+        w2 = coefficient[1]
         w = coefficient[2]
         m = coefficient[3]
         result = (w3 * x[i]) + (w2 * x[i]) + (w*x[i]) + m
