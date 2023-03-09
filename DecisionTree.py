@@ -21,7 +21,7 @@ def decision_tree():
     cb = cbt.catboost_result()
 
     # Makes one dataframe with the results
-    data = pd.DataFrame(columns=["Real Y","lineal1", "lineal2", "lineal3", "derivative", "Catboost"])
+    data = pd.DataFrame(columns=["Real Y", "lineal1", "lineal2", "lineal3", "derivative", "catboost"])
     data["Real Y"] = y
     data["lineal1"] = lineal
     data["lineal2"] = lineal2
@@ -43,7 +43,6 @@ def decision_tree():
         if mse[col] < lowest_mse:
             lowest_mse = mse[col]
             lowest_col = col
-
 
     # Return the DataFrame with the selected option with the lowest amount of error
     c = pd.DataFrame(columns=["X", "Y", "Best Result"])
