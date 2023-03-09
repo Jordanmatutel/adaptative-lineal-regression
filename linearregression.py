@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-def lineal_regression():
+def linear_regression():
     c = pd.read_csv("data.csv")
     y = c["y_train"]
     x = c["x_test"]
@@ -16,7 +16,7 @@ def lineal_regression():
     return data
 
 
-def lineal_regression2():
+def linear_regression2():
     c = pd.read_csv("data.csv")
     y = c["y_train"]
     x = c["x_test"]
@@ -31,7 +31,7 @@ def lineal_regression2():
     return data
 
 
-def lineal_regression3():
+def linear_regression3():
     c = pd.read_csv("data.csv")
     y = c["y_train"]
     x = c["x_test"]

@@ -1,5 +1,5 @@
 import pandas as pd
-import linealregression as lr
+import linearregression as lr
 import derivative as dr
 import catboost_model as cbt
 
@@ -10,9 +10,9 @@ def decision_tree():
     y = d["y_train"]
 
     # Create the model using lineal regression.
-    lineal = lr.lineal_regression()
-    lineal2 = lr.lineal_regression2()
-    lineal3 = lr.lineal_regression3()
+    linear = lr.linear_regression()
+    linear2 = lr.linear_regression2()
+    linear3 = lr.linear_regression3()
 
     # Create the model using derivatives.
     slope = dr.slope_result()
@@ -21,11 +21,11 @@ def decision_tree():
     cb = cbt.catboost_result()
 
     # Makes one dataframe with the results
-    data = pd.DataFrame(columns=["Real Y", "lineal1", "lineal2", "lineal3", "derivative", "catboost"])
+    data = pd.DataFrame(columns=["Real Y", "linear1", "linear2", "linear3", "derivative", "catboost"])
     data["Real Y"] = y
-    data["lineal1"] = lineal
-    data["lineal2"] = lineal2
-    data["lineal3"] = lineal3
+    data["linear1"] = linear
+    data["linear2"] = linear2
+    data["linear3"] = linear3
     data["derivative"] = slope
     data["catboost"] = cb
 
@@ -36,8 +36,8 @@ def decision_tree():
     mse = ((data - y) ** 2).mean()
 
     # Return the option with the less mean error.
-    lowest_mse = mse["lineal1"]
-    lowest_col = "lineal1"
+    lowest_mse = mse["linear1"]
+    lowest_col = "linear1"
 
     for col in mse.index:
         if mse[col] < lowest_mse:
