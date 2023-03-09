@@ -21,12 +21,16 @@ def decision_tree():
     cb = cbt.catboost_result()
 
     # Makes one dataframe with the results
-    data = pd.DataFrame(columns=["lineal1", "lineal2", "lineal3", "derivative", "Catboost"])
+    data = pd.DataFrame(columns=["Real Y","lineal1", "lineal2", "lineal3", "derivative", "Catboost"])
+    data["Real Y"] = y
     data["lineal1"] = lineal
     data["lineal2"] = lineal2
     data["lineal3"] = lineal3
     data["derivative"] = slope
     data["catboost"] = cb
+
+    # Saves the results for every model
+    data.to_csv("All_Results.csv")
 
     # Takes the columns and calculate the mean error squared.
     mse = ((data - y) ** 2).mean()
