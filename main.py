@@ -1,9 +1,17 @@
-import pandas as pd
+import decisiontree as dt
 import matplotlib.pyplot as plt
-from catboost import CatBoostRegressor
-import seaborn as sns
-import DecisionTree as dt
+import datacreator as dc
 
-c = dt.decisiontree()
-print(c)
+dc.data_creator(100)
+c = dt.decision_tree()
 
+# Set the data for our graphs.
+fig, ax = plt.subplots()
+
+# Graph details
+ax.plot(c['Best Result'], color='blue')
+ax.scatter(c.index, c['Y'], color='red')
+max_y1 = max(c['Best Result'].max(), c['Y'].max())
+ax.legend(['Best Result', 'Y'])
+
+plt.show()

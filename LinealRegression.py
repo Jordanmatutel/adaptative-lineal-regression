@@ -1,65 +1,47 @@
 import numpy as np
+import pandas as pd
 
 
-def linealregression(x, y):
+def lineal_regression():
+    c = pd.read_csv("data.csv")
+    y = c["y_train"]
+    x = c["x_test"]
     data = []
-    coeficiente = np.polyfit(x, y, 1)
+    coefficient = np.polyfit(x, y, 1)
     for i in range(len(x)):
-        w = coeficiente[0]
-        m = coeficiente[1]
+        w = coefficient[0]
+        m = coefficient[1]
         result = (w * x[i]) + m
         data.append(result)
     return data
 
 
-def linealregression2(x, y):
+def lineal_regression2():
+    c = pd.read_csv("data.csv")
+    y = c["y_train"]
+    x = c["x_test"]
     data = []
-    coeficiente = np.polyfit(x, y, 2)
+    coefficient = np.polyfit(x, y, 2)
     for i in range(len(x)):
-        w2 = coeficiente[0] ** 2
-        w = coeficiente[1]
-        m = coeficiente[2]
+        w2 = coefficient[0] ** 2
+        w = coefficient[1]
+        m = coefficient[2]
         result = (w2 * x[i]) + (w*x[i]) + m
         data.append(result)
     return data
 
 
-def linealregression3(x, y):
+def lineal_regression3():
+    c = pd.read_csv("data.csv")
+    y = c["y_train"]
+    x = c["x_test"]
     data = []
-    coeficiente = np.polyfit(x, y, 3)
+    coefficient = np.polyfit(x, y, 3)
     for i in range(len(x)):
-        w3 = coeficiente[0] ** 3
-        w2 = coeficiente[1] ** 2
-        w = coeficiente[2]
-        m = coeficiente[3]
+        w3 = coefficient[0] ** 3
+        w2 = coefficient[1] ** 2
+        w = coefficient[2]
+        m = coefficient[3]
         result = (w3 * x[i]) + (w2 * x[i]) + (w*x[i]) + m
         data.append(result)
     return data
-
-
-def error(y, data):
-    error = []
-    for i in range(len(y)):
-        margin = (data[i] * 100) / y[i]
-        s = 100 - margin
-        error.append(s)
-    return error
-
-
-def meanError(y, data):
-    e = []
-    for i in range(len(y)):
-        margin = (data[i] * 100) / y[i]
-        s = 100 - margin
-        e.append(s)
-    r = sum(e) / len(e)
-    return r
-
-
-def errorsquare(y, data):
-    e = []
-    for i in range(len(y)):
-        margin = (data[i] * 100) / y[i]
-        s = (100 - margin) ** 2
-        e.append(s)
-    return e
