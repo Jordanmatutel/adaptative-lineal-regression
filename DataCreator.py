@@ -23,10 +23,3 @@ def data_creator(n):
     data["y_test"] = y_test
     data.to_csv("data.csv", index=False)
     return data
-
-
-# Adds the result to the csv
-def add_data(n):
-    c = pd.read_csv("data.csv")
-    c = c + n
-    c.to_csv("data.csv", index=False)
