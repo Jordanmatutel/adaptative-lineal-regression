@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 
 
+# Creates the csv
 def data_creator(n):
     # Creates random numbers between 1 and 0.
     x_train = np.random.rand(n)
@@ -22,3 +23,10 @@ def data_creator(n):
     data["y_test"] = y_test
     data.to_csv("data.csv", index=False)
     return data
+
+
+# Adds the result to the csv
+def add_data(n):
+    c = pd.read_csv("data.csv")
+    c = c + n
+    c.to_csv("data.csv", index=False)

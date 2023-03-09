@@ -4,6 +4,7 @@ import datacreator as dc
 
 dc.data_creator(100)
 c = dt.decision_tree()
+dc.add_data(c)
 
 # Set the data for our graphs.
 fig, ax = plt.subplots()
